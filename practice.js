@@ -90,7 +90,14 @@ multiply(4, 3, function(answer){
   If the name does not exist, invoke the callback with false as the argument.
 */
 
-//Code Here 
+function contains(arr, name, cb){
+  if(arr.filter(function(e, i, arr){
+    return e == name;
+  }) === true){
+    cb(true)
+  }
+    else cb(false)
+}
 
 // Do not edit the code below.
 contains(names, 'Colt', function(result){
@@ -111,7 +118,12 @@ contains(names, 'Colt', function(result){
   Remove any duplicate values from the array, and invoke the callback with the modified array as an argument.
 */
 
-//Code Here
+function uniq(arr, cb){
+  var uniqArr = arr.filter(function(e, i, arr) {
+      return i == arr.indexOf(e);
+  });
+  cb(uniqArr);
+}
 
 // Do not edit the code below.
 uniq(names, function(uniqArr){
@@ -128,7 +140,11 @@ uniq(names, function(uniqArr){
   For each name in the array, invoke the callback and pass in the name and the name's index as arguments.
 */
 
-//Code Here 
+function each(arr, cb){
+  arr.forEach(function(e, i, arr){
+    cb(e, i);
+  })
+}
 
 // Do not edit the code below.
 each(names, function(item, indice){
@@ -145,7 +161,13 @@ each(names, function(item, indice){
   When the correct user object is found, invoke the callback with the user object as an argument.
 */
 
-// Code here
+function getUserById(users, id, cb){
+  for (var i = 0; i < users.length; i++) {
+    if (users[i] === id){
+      cb(users[i]);
+    }
+  }
+}
 
 // Do not edit the code below.
 var users = [
