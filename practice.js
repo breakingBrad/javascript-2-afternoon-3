@@ -90,13 +90,11 @@ multiply(4, 3, function(answer){
   If the name does not exist, invoke the callback with false as the argument.
 */
 
-function contains(arr, name, cb){
-  if(arr.filter(function(e, i, arr){
-    return e == name;
-  }) === true){
-    cb(true)
+function contains(arr, name, cb) {
+  if(arr.indexOf(name) === -1) {
+    cb(false);
   }
-    else cb(false)
+  else cb(true);
 }
 
 // Do not edit the code below.
@@ -160,7 +158,7 @@ each(names, function(item, indice){
   Write a function called getUserById that takes in three parameters: an array of objects (users), an id and a callback, and searches for the user with a matching id.
   When the correct user object is found, invoke the callback with the user object as an argument.
 */
-
+``
 function getUserById(users, id, cb){
   for (var i = 0; i < users.length; i++) {
     if (users[i].id === id){
